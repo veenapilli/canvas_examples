@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CanvasOne</title>
+</head>
+<body>
+<canvas id="c" width="1000" height="300"></canvas>
+
+<script type="text/javascript">
+	var c = document.querySelector("#c");
+	var ctx = c.getContext("2d");
+
+	var image = new Image();
+
+	image.onload = function(){
+		console.log("Image loaded");
+		ctx.drawImage(image, 0, 0, c.width, c.height);
+	}
+
+	image.src = "sample.jpg";
+</script>
+
+</body>
+</html>
