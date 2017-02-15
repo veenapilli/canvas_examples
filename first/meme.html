@@ -3,7 +3,7 @@
 <html>
 <head>
   <title>MemeMaker-Simple</title>
-    
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,8 +48,21 @@
       var canvas = document.querySelector('canvas');
       var ctx = canvas.getContext("2d");
       // Your code here
-       if (image != null)
+      if (image != null){
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+        // generate green vertical lines for the image - BEGIN
+        var imageData = ctx.getImageData(0,0,canvas.width,canvas.height);
+
+        for (var i=0;i<imageData.data.length;i+=40){
+          imageData.data[i]=0;
+          imageData.data[i+1]=255;
+          imageData.data[i+2]=0;
+          imageData.data[i+3]=255;
+        }
+        ctx.putImageData(imageData, 0, 0);
+        // generate green vertical lines for the image - END
+      }
       
       // Text attributes
       ctx.font = '30pt Impact';
@@ -87,7 +100,7 @@
         // Create an image object
         var image = new Image();
         image.onload = function() {
-          
+
           window.imageSrc = this;
           redrawMeme(window.imageSrc, null, null);
         }
