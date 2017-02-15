@@ -15,15 +15,25 @@
 	image.onload = function(){
 		console.log("Image loaded");
 
-		ctx.strokeRect(50, 50, 100, 100);
+		ctx.strokeStyle = "#33CC33";
+		ctx.strokeRect(150, 150, 100, 100);
 		
 		ctx.beginPath();
-		ctx.moveTo(75, 75);
-		ctx.lineTo(125, 75);
-		ctx.lineTo(125, 125);
-		ctx.lineTo(75, 75);
+		ctx.moveTo(175, 175);
+		ctx.lineTo(225, 175);
+		ctx.lineTo(225, 225);
+		ctx.lineTo(175, 175);
+		ctx.fillStyle = "blue";
 		ctx.fill();
 
+		ctx.fillStyle = "white";
+		ctx.font = "40pt impact";
+		ctx.fillText("Hello!", 150, 60);
+
+		ctx.strokeStyle = "black";
+		ctx.lineWidth = 3;
+		ctx.font = "40pt impact";
+		ctx.strokeText("Hello!", 150, 60);
 		/*
 		ctx.fillRect(100, 100, 100, 100);
 		ctx.strokeRect(50, 50, 50, 50);
